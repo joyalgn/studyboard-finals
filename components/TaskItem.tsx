@@ -26,7 +26,7 @@ export default function TaskItem({
 
     setDone(newValue);
     setError("");
-
+    
     const res = await fetch(`/api/groups/${groupId}/tasks/${task.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -35,7 +35,7 @@ export default function TaskItem({
 
     if (!res.ok) {
       setDone(previous);
-      setError("Failed to update task");
+      setError("Failed to update task ");
     }
   }
 

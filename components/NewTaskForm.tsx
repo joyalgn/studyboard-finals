@@ -43,7 +43,11 @@ export default function NewTaskForm({ groupId }: { groupId: string }) {
           onChange={(e) => setTitle(e.target.value)}
           className="flex-1 rounded-md border px-3 py-2 text-sm"
         />
-        <Button type="submit" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="whitespace-nowrap rounded-md bg-pink-600 px-4 py-2 text-sm font-medium text-white hover:bg-pink-700"
+        >
           {isSubmitting ? "Adding..." : "Add"}
         </Button>
       </form>
