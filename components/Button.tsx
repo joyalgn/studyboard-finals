@@ -1,23 +1,28 @@
+
 import { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary";
 };
 
-// A plain presentational component — no "use client" needed here.
-// It can be rendered from a Server Component (static button) or from
-// a Client Component (with an onClick handler attached), since Next.js
-// bundles it appropriately depending on where it's used.
+// Reusable button component
 export default function Button({
   variant = "primary",
   className = "",
   ...props
 }: ButtonProps) {
-  const base = "px-4 py-2 rounded-md text-sm font-medium transition-colors";
+  const base =
+    "px-4 py-2 rounded-md text-sm font-medium transition-colors";
+
   const styles =
     variant === "primary"
-      ? "bg-blue-600 text-white hover:bg-blue-700"
-      : "bg-gray-200 text-gray-800 hover:bg-gray-300";
+      ? "bg-pink-200 text-pink-900 hover:bg-pink-300"
+      : "bg-pink-50 text-pink-800 border border-pink-200 hover:bg-pink-100";
 
-  return <button className={`${base} ${styles} ${className}`} {...props} />;
+  return (
+    <button
+      className={`${base} ${styles} ${className}`}
+      {...props}
+    />
+  );
 }
